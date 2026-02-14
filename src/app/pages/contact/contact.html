@@ -1,0 +1,200 @@
+<div class="contact-page">
+  <div class="container">
+    <div class="page-header">
+      <h1 class="page-title">{{ translate('contact.title') }}</h1>
+      <p class="page-subtitle">{{ translate('contact.subtitle') }}</p>
+    </div>
+    
+    <div class="contact-content">
+      <div class="row g-5">
+        <div class="col-lg-5">
+          <div class="contact-info-section">
+            <h2 class="contact-info-title">{{ translate('contact.info') }}</h2>
+            <p class="contact-info-text">
+              {{ translate('contact.infoText') }}
+            </p>
+            
+            <div class="contact-details">
+              <a [href]="'mailto:' + personalInfo.email" class="contact-detail-item">
+                <div class="contact-icon">
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div class="contact-detail-content">
+                  <span class="contact-detail-label">{{ translate('contact.email') }}</span>
+                  <span class="contact-detail-value">{{ personalInfo.email }}</span>
+                </div>
+              </a>
+              
+              <a [href]="'tel:' + personalInfo.phone" class="contact-detail-item">
+                <div class="contact-icon">
+                  <i class="bi bi-telephone"></i>
+                </div>
+                <div class="contact-detail-content">
+                  <span class="contact-detail-label">{{ translate('contact.phone') }}</span>
+                  <span class="contact-detail-value">{{ personalInfo.phone }}</span>
+                </div>
+              </a>
+              
+              <div class="contact-detail-item">
+                <div class="contact-icon">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="contact-detail-content">
+                  <span class="contact-detail-label">{{ translate('contact.location') }}</span>
+                  <span class="contact-detail-value">{{ personalInfo.location }}</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="social-links-section">
+              <h3 class="social-title">{{ translate('contact.social') }}</h3>
+              <div class="social-links">
+                <a [href]="personalInfo.linkedin" target="_blank" class="social-link-item">
+                  <i class="bi bi-linkedin"></i>
+                  <span>LinkedIn</span>
+                </a>
+                <a [href]="personalInfo.github" target="_blank" class="social-link-item">
+                  <i class="bi bi-github"></i>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-7">
+          <div class="contact-form-section">
+            @if (successMessage) {
+              <div class="alert alert-success custom-alert">
+                <i class="bi bi-check-circle me-2"></i>
+                {{ successMessage }}
+              </div>
+            }
+            
+            @if (errorMessage) {
+              <div class="alert alert-danger custom-alert">
+                <i class="bi bi-exclamation-circle me-2"></i>
+                {{ errorMessage }}
+              </div>
+            }
+            
+            <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form">
+              <div class="form-group">
+                <label for="name" class="form-label">{{ translate('contact.form.name') }}</label>
+                <input 
+                  type="text" 
+                  class="form-control custom-input" 
+                  [class.is-invalid]="name.invalid && name.touched"
+                  [class.is-valid]="name.valid && name.touched"
+                  id="name" 
+                  [(ngModel)]="formData.name" 
+                  name="name" 
+                  [placeholder]="translate('contact.form.namePlaceholder')"
+                  required
+                  minlength="3"
+                  #name="ngModel">
+                @if (name.invalid && name.touched) {
+                  <div class="form-error">
+                    @if (name.errors?.['required']) {
+                      {{ translate('contact.form.name') }} {{ translate('contact.form.required') }}
+                    }
+                    @if (name.errors?.['minlength']) {
+                      {{ translate('contact.form.nameMinLength') }}
+                    }
+                  </div>
+                }
+              </div>
+              
+              <div class="form-group">
+                <label for="email" class="form-label">{{ translate('contact.form.email') }}</label>
+                <input 
+                  type="email" 
+                  class="form-control custom-input" 
+                  [class.is-invalid]="email.invalid && email.touched"
+                  [class.is-valid]="email.valid && email.touched"
+                  id="email" 
+                  [(ngModel)]="formData.email" 
+                  name="email" 
+                  [placeholder]="translate('contact.form.emailPlaceholder')"
+                  required 
+                  email
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                  #email="ngModel">
+                @if (email.invalid && email.touched) {
+                  <div class="form-error">{{ translate('contact.form.validEmail') }}</div>
+                }
+              </div>
+              
+              <div class="form-group">
+                <label for="subject" class="form-label">{{ translate('contact.form.subject') }}</label>
+                <input 
+                  type="text" 
+                  class="form-control custom-input" 
+                  [class.is-invalid]="subject.invalid && subject.touched"
+                  [class.is-valid]="subject.valid && subject.touched"
+                  id="subject" 
+                  [(ngModel)]="formData.subject" 
+                  name="subject" 
+                  [placeholder]="translate('contact.form.subjectPlaceholder')"
+                  required
+                  minlength="5"
+                  #subject="ngModel">
+                @if (subject.invalid && subject.touched) {
+                  <div class="form-error">
+                    @if (subject.errors?.['required']) {
+                      {{ translate('contact.form.subject') }} {{ translate('contact.form.required') }}
+                    }
+                    @if (subject.errors?.['minlength']) {
+                      {{ translate('contact.form.subjectMinLength') }}
+                    }
+                  </div>
+                }
+              </div>
+              
+              <div class="form-group">
+                <label for="message" class="form-label">{{ translate('contact.form.message') }}</label>
+                <textarea 
+                  class="form-control custom-input" 
+                  [class.is-invalid]="message.invalid && message.touched"
+                  [class.is-valid]="message.valid && message.touched"
+                  id="message" 
+                  rows="6" 
+                  [(ngModel)]="formData.message" 
+                  name="message" 
+                  [placeholder]="translate('contact.form.messagePlaceholder')"
+                  required
+                  minlength="10"
+                  #message="ngModel"></textarea>
+                @if (message.invalid && message.touched) {
+                  <div class="form-error">
+                    @if (message.errors?.['required']) {
+                      {{ translate('contact.form.message') }} {{ translate('contact.form.required') }}
+                    }
+                    @if (message.errors?.['minlength']) {
+                      {{ translate('contact.form.messageMinLength') }}
+                    }
+                  </div>
+                }
+              </div>
+              
+              @if (contactForm.valid) {
+                <button 
+                  type="submit" 
+                  class="btn-custom btn-primary-custom w-100 btn-submit-animate"
+                  [disabled]="isSubmitting">
+                  @if (isSubmitting) {
+                    <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                    {{ translate('contact.form.sending') }}
+                  } @else {
+                    <i class="bi bi-send me-2"></i>
+                    {{ translate('contact.form.send') }}
+                  }
+                </button>
+              }
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

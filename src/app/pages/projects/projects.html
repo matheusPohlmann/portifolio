@@ -1,0 +1,49 @@
+<div class="projects-page">
+  <div class="container">
+    <div class="page-header">
+      <h1 class="page-title">{{ translate('projects.title') }}</h1>
+      <p class="page-subtitle">{{ translate('projects.subtitle') }}</p>
+    </div>
+    
+    <div class="projects-grid">
+      @for (project of projects; track project.id) {
+        <article class="project-card">
+          <div class="project-image">
+            <img [src]="project.imageUrl" [alt]="project.title">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a [href]="project.githubUrl" target="_blank" class="project-link" aria-label="Ver no GitHub">
+                  <i class="bi bi-github"></i>
+                </a>
+                @if (project.liveUrl) {
+                  <a [href]="project.liveUrl" target="_blank" class="project-link" aria-label="Ver demo">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                  </a>
+                }
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-content">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            
+            <div class="project-tech">
+              @for (tech of project.technologies; track tech) {
+                <span class="tech-tag">{{ tech }}</span>
+              }
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+
+    <div class="projects-footer">
+      <p class="text-muted mb-3">{{ translate('projects.moreOnGithub') }}</p>
+      <a [href]="personalInfo.github" target="_blank" class="btn-custom btn-outline-custom">
+        <i class="bi bi-github me-2"></i>
+        {{ translate('projects.viewMore') }}
+      </a>
+    </div>
+  </div>
+</div>

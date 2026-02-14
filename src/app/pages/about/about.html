@@ -1,0 +1,83 @@
+<div class="about-page">
+  <div class="container">
+    <div class="page-header">
+      <h1 class="page-title">{{ translate('about.title') }}</h1>
+      <p class="page-subtitle">{{ translate('about.subtitle') }}</p>
+    </div>
+    
+    <div class="about-intro">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <p class="lead-text">{{ personalInfo.summary }}</p>
+          <div class="contact-info-inline">
+            <a [href]="'mailto:' + personalInfo.email" class="info-link">
+              <i class="bi bi-envelope"></i>
+              {{ personalInfo.email }}
+            </a>
+            <a [href]="'tel:' + personalInfo.phone" class="info-link">
+              <i class="bi bi-telephone"></i>
+              {{ personalInfo.phone }}
+            </a>
+            <span class="info-link">
+              <i class="bi bi-geo-alt"></i>
+              {{ personalInfo.location }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="about-section">
+      <h2 class="section-title">{{ translate('about.experience') }}</h2>
+      <div class="timeline">
+        @for (exp of experiences; track exp.company) {
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-title">{{ exp.position }}</h3>
+                <span class="timeline-period">{{ exp.period }}</span>
+              </div>
+              <h4 class="timeline-company">{{ exp.company }}</h4>
+              <p class="timeline-location">
+                <i class="bi bi-geo-alt"></i> {{ exp.location }}
+              </p>
+              <p class="timeline-description">{{ exp.description }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2 class="section-title">{{ translate('about.skills') }}</h2>
+      <div class="skills-grid">
+        @for (skill of skills; track skill.category) {
+          <div class="skill-category">
+            <h3 class="skill-category-title">{{ skill.category }}</h3>
+            <div class="skill-items">
+              @for (item of skill.items; track item) {
+                <span class="skill-item">{{ item }}</span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2 class="section-title">{{ translate('about.education') }}</h2>
+      <div class="education-list">
+        @for (edu of education; track edu.degree) {
+          <div class="education-item">
+            <h3 class="education-degree">{{ edu.degree }}</h3>
+            <p class="education-institution">{{ edu.institution }}</p>
+            <p class="education-period">
+              <i class="bi bi-calendar"></i> {{ edu.period }}
+            </p>
+          </div>
+        }
+      </div>
+    </section>
+  </div>
+</div>

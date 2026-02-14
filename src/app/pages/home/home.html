@@ -1,0 +1,48 @@
+<div class="hero-section">
+  <div class="container">
+    <div class="row min-vh-100 align-items-center">
+      <div class="col-lg-5 col-xl-5 mb-4 mb-lg-0 text-center">
+        <div class="avatar-container fade-in">
+          <img src="assets/avatar.png" alt="Avatar Matheus Pohlmann" class="avatar-image">
+        </div>
+      </div>
+      
+      <div class="col-lg-7 col-xl-7">
+        <div class="hero-content">
+          <p class="hero-greeting fade-in-delay-1">{{ translate('home.greeting') }}</p>
+          <h1 class="hero-title fade-in-delay-2">
+            {{ personalInfo.name }}
+          </h1>
+          <h2 class="hero-subtitle fade-in-delay-3">
+            {{ personalInfo.title }}
+          </h2>
+          <p class="hero-description fade-in-delay-4">
+            {{ personalInfo.summary }}
+          </p>
+          
+          <div class="hero-actions fade-in-delay-5">
+            <a routerLink="/projects" class="btn-custom btn-primary-custom">
+              {{ translate('home.viewProjects') }}
+              <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+            <a routerLink="/contact" class="btn-custom btn-outline-custom">
+              {{ translate('home.contact') }}
+            </a>
+          </div>
+
+          <div class="hero-links fade-in-delay-6">
+            <a [href]="personalInfo.linkedin" target="_blank" class="social-link" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a [href]="personalInfo.github" target="_blank" class="social-link" aria-label="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+            <a routerLink="/contact" class="social-link" aria-label="Email">
+              <i class="bi bi-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
