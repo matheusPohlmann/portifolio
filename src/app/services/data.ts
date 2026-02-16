@@ -8,7 +8,8 @@ export interface Project {
   technologies: string[];
   githubUrl: string;
   liveUrl?: string;
-  imageUrl: string;
+  imageUrl?: string;
+  images?: string[];
 }
 
 export interface Experience {
@@ -108,47 +109,41 @@ export class DataService {
   }
 
   getProjects(): Project[] {
-    // Retorne um array vazio para mostrar a mensagem de "em desenvolvimento"
-    // Quando tiver projetos, adicione-os aqui
-    return [];
-    
-    /* Exemplo de projetos (descomente quando tiver projetos reais):
     return [
       {
         id: 1,
-        title: 'Portal de Seguros',
+        title: 'Pé de Meia',
         description: {
-          'pt-BR': 'Portal interno para gestão de processos de seguros com APIs escaláveis e interface moderna.',
-          'en-US': 'Internal portal for insurance process management with scalable APIs and modern interface.'
+          'pt-BR': 'Sistema completo de gestão financeira pessoal desenvolvido com .NET 10 e Angular 20. Permite controle de receitas, despesas, metas de economia e dinheiro guardado, com dashboard interativo, gráficos, exportação para Excel e sistema de autenticação seguro com JWT.',
+          'en-US': 'Complete personal financial management system developed with .NET 10 and Angular 20. Allows control of income, expenses, savings goals and saved money, with interactive dashboard, charts, Excel export and secure authentication system with JWT.'
         },
-        technologies: ['Angular', 'C#', '.NET', 'SQL Server'],
-        githubUrl: 'https://github.com/matheuspohlmann/projeto1',
-        imageUrl: 'https://via.placeholder.com/400x250/8A00C4/ffffff?text=Insurance+Portal'
+        technologies: ['.NET 10', 'Angular 20', 'TypeScript', 'Entity Framework', 'SQLite', 'JWT', 'Chart.js'],
+        githubUrl: 'https://github.com/matheusPohlmann/PeDeMeia-app',
+        images: ['assets/img/pedemeia01.png', 'assets/img/pedemeia02.png']
       },
       {
         id: 2,
-        title: 'Sistema de Integração IoT',
+        title: '',
         description: {
-          'pt-BR': 'Plataforma de monitoramento em tempo real para linhas de produção industrial.',
-          'en-US': 'Real-time monitoring platform for industrial production lines.'
+          'pt-BR': '🚀 Trabalhando em mais projetos incríveis que estarão disponíveis em breve!',
+          'en-US': '🚀 Working on more amazing projects that will be available soon!'
         },
-        technologies: ['Angular', 'C#', 'ASP.NET', 'IoT'],
-        githubUrl: 'https://github.com/matheuspohlmann/projeto2',
-        imageUrl: 'https://via.placeholder.com/400x250/8A00C4/ffffff?text=IoT+System'
+        technologies: [],
+        githubUrl: '#',
+        imageUrl: 'assets/img/workingInMoreProjects.gif'
       },
       {
         id: 3,
-        title: 'API Bancária',
+        title: '',
         description: {
-          'pt-BR': 'APIs de alta disponibilidade para integração de funcionalidades bancárias.',
-          'en-US': 'High-availability APIs for banking functionality integration.'
+          'pt-BR': '✨ Novos projetos em desenvolvimento. Fique atento para as próximas atualizações!',
+          'en-US': '✨ New projects in development. Stay tuned for upcoming updates!'
         },
-        technologies: ['.NET', 'C#', 'SQL Server', 'Docker'],
-        githubUrl: 'https://github.com/matheuspohlmann/projeto3',
-        imageUrl: 'https://via.placeholder.com/400x250/8A00C4/ffffff?text=Banking+API'
+        technologies: [],
+        githubUrl: '#',
+        imageUrl: 'assets/img/workingInMoreProjects.gif'
       }
     ];
-    */
   }
 
   getEducation() {

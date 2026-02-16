@@ -14,6 +14,7 @@ export class ProjectsComponent implements OnInit {
   
   projects: any[] = [];
   personalInfo: any;
+  currentImageIndex: { [key: number]: number } = {};
 
   constructor() {
     effect(() => {
@@ -32,13 +33,36 @@ export class ProjectsComponent implements OnInit {
     this.personalInfo = this.dataService.getPersonalInfo();
     
     // Processar projetos para extrair o idioma correto
-    this.projects = this.dataService.getProjects().map(project => ({
-      ...project,
-      description: project.description[lang]
-    }));
+    this.projects = this.dataService.getProjects().map(project => {
+      // Inicializar índice do carousel
+      this.currentImageIndex[project.id] = 0;
+      
+      return {
+        ...project,
+        description: project.description[lang],
+        displayImage: project.images ? project.images[0] : project.imageUrl
+      };
+    });
   }
 
   translate(key: string): string {
     return this.languageService.translate(key);
+  }
+
+  nextImage(projectId: number, imagesLength: number) {
+    this.currentImageIndex[projectId] = (this.currentImageIndex[projectId] + 1) % imagesLength;
+    this.updateProjectImage(projectId);
+  }
+
+  prevImage(projectId: number, imagesLength: number) {
+    this.currentImageIndex[projectId] = (this.currentImageIndex[projectId] - 1 + imagesLength) % imagesLength;
+    this.updateProjectImage(projectId);
+  }
+
+  private updateProjectImage(projectId: number) {
+    const project = this.projects.find(p => p.id === projectId);
+    if (project && project.images) {
+      project.displayImage = project.images[this.currentImageIndex[projectId]];
+    }
   }
 }
