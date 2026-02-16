@@ -5,45 +5,59 @@
       <p class="page-subtitle">{{ translate('projects.subtitle') }}</p>
     </div>
     
-    <div class="projects-grid">
-      @for (project of projects; track project.id) {
-        <article class="project-card">
-          <div class="project-image">
-            <img [src]="project.imageUrl" [alt]="project.title">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a [href]="project.githubUrl" target="_blank" class="project-link" aria-label="Ver no GitHub">
-                  <i class="bi bi-github"></i>
-                </a>
-                @if (project.liveUrl) {
-                  <a [href]="project.liveUrl" target="_blank" class="project-link" aria-label="Ver demo">
-                    <i class="bi bi-box-arrow-up-right"></i>
+    @if (projects.length === 0) {
+      <div class="empty-state">
+        <div class="empty-state-icon">
+          <i class="bi bi-code-slash"></i>
+        </div>
+        <h2 class="empty-state-title">{{ translate('projects.empty.title') }}</h2>
+        <p class="empty-state-message">{{ translate('projects.empty.message') }}</p>
+        <a [href]="personalInfo.github" target="_blank" class="btn-custom btn-primary-custom">
+          <i class="bi bi-github me-2"></i>
+          {{ translate('projects.empty.button') }}
+        </a>
+      </div>
+    } @else {
+      <div class="projects-grid">
+        @for (project of projects; track project.id) {
+          <article class="project-card">
+            <div class="project-image">
+              <img [src]="project.imageUrl" [alt]="project.title">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a [href]="project.githubUrl" target="_blank" class="project-link" aria-label="Ver no GitHub">
+                    <i class="bi bi-github"></i>
                   </a>
+                  @if (project.liveUrl) {
+                    <a [href]="project.liveUrl" target="_blank" class="project-link" aria-label="Ver demo">
+                      <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                  }
+                </div>
+              </div>
+            </div>
+            
+            <div class="project-content">
+              <h3 class="project-title">{{ project.title }}</h3>
+              <p class="project-description">{{ project.description }}</p>
+              
+              <div class="project-tech">
+                @for (tech of project.technologies; track tech) {
+                  <span class="tech-tag">{{ tech }}</span>
                 }
               </div>
             </div>
-          </div>
-          
-          <div class="project-content">
-            <h3 class="project-title">{{ project.title }}</h3>
-            <p class="project-description">{{ project.description }}</p>
-            
-            <div class="project-tech">
-              @for (tech of project.technologies; track tech) {
-                <span class="tech-tag">{{ tech }}</span>
-              }
-            </div>
-          </div>
-        </article>
-      }
-    </div>
+          </article>
+        }
+      </div>
 
-    <div class="projects-footer">
-      <p class="text-muted mb-3">{{ translate('projects.moreOnGithub') }}</p>
-      <a [href]="personalInfo.github" target="_blank" class="btn-custom btn-outline-custom">
-        <i class="bi bi-github me-2"></i>
-        {{ translate('projects.viewMore') }}
-      </a>
-    </div>
+      <div class="projects-footer">
+        <p class="text-muted mb-3">{{ translate('projects.moreOnGithub') }}</p>
+        <a [href]="personalInfo.github" target="_blank" class="btn-custom btn-outline-custom">
+          <i class="bi bi-github me-2"></i>
+          {{ translate('projects.viewMore') }}
+        </a>
+      </div>
+    }
   </div>
 </div>

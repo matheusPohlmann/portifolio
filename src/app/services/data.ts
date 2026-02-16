@@ -108,6 +108,11 @@ export class DataService {
   }
 
   getProjects(): Project[] {
+    // Retorne um array vazio para mostrar a mensagem de "em desenvolvimento"
+    // Quando tiver projetos, adicione-os aqui
+    return [];
+    
+    /* Exemplo de projetos (descomente quando tiver projetos reais):
     return [
       {
         id: 1,
@@ -118,7 +123,7 @@ export class DataService {
         },
         technologies: ['Angular', 'C#', '.NET', 'SQL Server'],
         githubUrl: 'https://github.com/matheuspohlmann/projeto1',
-        imageUrl: 'https://via.placeholder.com/400x250/0d6efd/ffffff?text=Insurance+Portal'
+        imageUrl: 'https://via.placeholder.com/400x250/8A00C4/ffffff?text=Insurance+Portal'
       },
       {
         id: 2,
@@ -129,7 +134,7 @@ export class DataService {
         },
         technologies: ['Angular', 'C#', 'ASP.NET', 'IoT'],
         githubUrl: 'https://github.com/matheuspohlmann/projeto2',
-        imageUrl: 'https://via.placeholder.com/400x250/198754/ffffff?text=IoT+System'
+        imageUrl: 'https://via.placeholder.com/400x250/8A00C4/ffffff?text=IoT+System'
       },
       {
         id: 3,
@@ -140,9 +145,10 @@ export class DataService {
         },
         technologies: ['.NET', 'C#', 'SQL Server', 'Docker'],
         githubUrl: 'https://github.com/matheuspohlmann/projeto3',
-        imageUrl: 'https://via.placeholder.com/400x250/ffc107/000000?text=Banking+API'
+        imageUrl: 'https://via.placeholder.com/400x250/8A00C4/ffffff?text=Banking+API'
       }
     ];
+    */
   }
 
   getEducation() {

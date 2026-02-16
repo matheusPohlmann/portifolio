@@ -40,6 +40,9 @@ export class LanguageService {
     'projects.subtitle': { 'pt-BR': 'Alguns dos trabalhos que desenvolvi', 'en-US': 'Some of the work I have developed' },
     'projects.viewMore': { 'pt-BR': 'Ver todos os projetos', 'en-US': 'View all projects' },
     'projects.moreOnGithub': { 'pt-BR': 'Veja mais projetos no meu GitHub', 'en-US': 'See more projects on my GitHub' },
+    'projects.empty.title': { 'pt-BR': '🚀 Novos Projetos em Desenvolvimento', 'en-US': '🚀 New Projects in Development' },
+    'projects.empty.message': { 'pt-BR': 'Estou trabalhando em projetos incríveis que estarão disponíveis em breve. Enquanto isso, confira meu GitHub para ver meu trabalho anterior.', 'en-US': 'I am working on amazing projects that will be available soon. In the meantime, check out my GitHub to see my previous work.' },
+    'projects.empty.button': { 'pt-BR': 'Visitar GitHub', 'en-US': 'Visit GitHub' },
 
     // Contact Page
     'contact.title': { 'pt-BR': 'Entre em Contato', 'en-US': 'Reach Out' },
