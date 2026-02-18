@@ -50,6 +50,19 @@ export class DataService {
   getExperiences(): Experience[] {
     return [
       {
+        {
+        company: 'Pestana Leilões',
+        position: { 
+          'pt-BR': 'Desenvolvedor Fullstack',
+          'en-US': 'Fullstack Developer'
+        },
+        period: 'Aug/2024 - Today',
+        location: 'Porto Alegre/RS',
+        description: {
+          'pt-BR': 'Atuação na equipe de sustentação e desenvolvimento, responsável pela manutenção, melhoria e evolução dos sistemas internos da leiloeira. Realizo análise e correção de incidentes, implementação de novas funcionalidades, otimização de consultas e rotinas em banco de dados Oracle. Trabalho focado em estabilidade, performance e confiabilidade dos sistemas que suportam os processos de leilão.',
+          'en-US': 'Working in the support and development team, responsible for maintaining, improving, and enhancing the company\'s internal auction systems. I perform incident analysis and resolution, implementation of new features, and optimization of queries and routines in Oracle databases. My work is focused on ensuring system stability, performance, and reliability to support auction operations.'
+        }
+      },
         company: 'WK JobHub',
         position: { 
           'pt-BR': 'Desenvolvedor .NET/Angular',
