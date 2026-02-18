@@ -48,61 +48,61 @@ export class DataService {
   }
 
   getExperiences(): Experience[] {
-    return [
-      {
-        {
-        company: 'Pestana Leilões',
-        position: { 
-          'pt-BR': 'Desenvolvedor Fullstack',
-          'en-US': 'Fullstack Developer'
-        },
-        period: 'Aug/2024 - Today',
-        location: 'Porto Alegre/RS',
-        description: {
-          'pt-BR': 'Atuação na equipe de sustentação e desenvolvimento, responsável pela manutenção, melhoria e evolução dos sistemas internos da leiloeira. Realizo análise e correção de incidentes, implementação de novas funcionalidades, otimização de consultas e rotinas em banco de dados Oracle. Trabalho focado em estabilidade, performance e confiabilidade dos sistemas que suportam os processos de leilão.',
-          'en-US': 'Working in the support and development team, responsible for maintaining, improving, and enhancing the companys internal auction systems. I perform incident analysis and resolution, implementation of new features, and optimization of queries and routines in Oracle databases. My work is focused on ensuring system stability, performance, and reliability to support auction operations.'
-        }
-      },{
-        company: 'WK JobHub',
-        position: { 
-          'pt-BR': 'Desenvolvedor .NET/Angular',
-          'en-US': '.NET/Angular Developer'
-        },
-        period: 'Aug/2024 - Aug/2025',
-        location: 'Porto Alegre/RS',
-        description: {
-          'pt-BR': 'Atuação como consultor .NET na Sabemi, no segmento de seguros. Responsável pelo desenvolvimento de APIs escaláveis e de alto desempenho, bem como pela participação ativa na concepção e implementação de um novo portal interno.',
-          'en-US': 'Acting as a .NET consultant at Sabemi, in the insurance segment. Responsible for developing scalable and high-performance APIs, as well as actively participating in the design and implementation of a new internal portal.'
-        }
+  return [
+    {
+      company: 'Pestana Leilões',
+      position: { 
+        'pt-BR': 'Desenvolvedor Fullstack',
+        'en-US': 'Fullstack Developer'
       },
-      {
-        company: 'NTT DATA',
-        position: {
-          'pt-BR': 'Analista Desenvolvedor',
-          'en-US': 'Developer Analyst'
-        },
-        period: 'Jul/2022 - Feb/2024',
-        location: 'Remote',
-        description: {
-          'pt-BR': 'Participação em projetos de grande porte: Itaú (desenvolvimento de APIs de alta disponibilidade) e BMW (desenvolvimento FullStack de portal de personalização de veículos).',
-          'en-US': 'Participation in large-scale projects: Itaú (development of high-availability APIs) and BMW (FullStack development of vehicle customization portal).'
-        }
-      },
-      {
-        company: 'Sirros IoT',
-        position: {
-          'pt-BR': 'Analista Desenvolvedor',
-          'en-US': 'Developer Analyst'
-        },
-        period: 'Feb/2021 - Jul/2022',
-        location: 'Novo Hamburgo/RS',
-        description: {
-          'pt-BR': 'Desenvolvimento de soluções de integração IoT com sistemas web para monitoramento em tempo real de linhas de produção nos setores automotivo e alimentício.',
-          'en-US': 'Development of IoT integration solutions with web systems for real-time monitoring of production lines in the automotive and food sectors.'
-        }
+      period: 'Aug/2024 - Today',
+      location: 'Porto Alegre/RS',
+      description: {
+        'pt-BR': 'Atuação na equipe de sustentação e desenvolvimento, responsável pela manutenção, melhoria e evolução dos sistemas internos da leiloeira. Realizo análise e correção de incidentes, implementação de novas funcionalidades, otimização de consultas e rotinas em banco de dados Oracle. Trabalho focado em estabilidade, performance e confiabilidade dos sistemas que suportam os processos de leilão.',
+        'en-US': 'Working in the support and development team, responsible for maintaining, improving, and enhancing the company\'s internal auction systems. I perform incident analysis and resolution, implementation of new features, and optimization of queries and routines in Oracle databases. My work is focused on ensuring system stability, performance, and reliability to support auction operations.'
       }
-    ];
-  }
+    },
+    {
+      company: 'WK JobHub',
+      position: { 
+        'pt-BR': 'Desenvolvedor .NET/Angular',
+        'en-US': '.NET/Angular Developer'
+      },
+      period: 'Aug/2024 - Aug/2025',
+      location: 'Porto Alegre/RS',
+      description: {
+        'pt-BR': 'Atuação como consultor .NET na Sabemi, no segmento de seguros. Responsável pelo desenvolvimento de APIs escaláveis e de alto desempenho, bem como pela participação ativa na concepção e implementação de um novo portal interno.',
+        'en-US': 'Acting as a .NET consultant at Sabemi, in the insurance segment. Responsible for developing scalable and high-performance APIs, as well as actively participating in the design and implementation of a new internal portal.'
+      }
+    },
+    {
+      company: 'NTT DATA',
+      position: {
+        'pt-BR': 'Analista Desenvolvedor',
+        'en-US': 'Developer Analyst'
+      },
+      period: 'Jul/2022 - Feb/2024',
+      location: 'Remote',
+      description: {
+        'pt-BR': 'Participação em projetos de grande porte: Itaú (desenvolvimento de APIs de alta disponibilidade) e BMW (desenvolvimento FullStack de portal de personalização de veículos).',
+        'en-US': 'Participation in large-scale projects: Itaú (development of high-availability APIs) and BMW (Fullstack development of a vehicle customization portal).'
+      }
+    },
+    {
+      company: 'Sirros IoT',
+      position: {
+        'pt-BR': 'Analista Desenvolvedor',
+        'en-US': 'Developer Analyst'
+      },
+      period: 'Feb/2021 - Jul/2022',
+      location: 'Novo Hamburgo/RS',
+      description: {
+        'pt-BR': 'Desenvolvimento de soluções de integração IoT com sistemas web para monitoramento em tempo real de linhas de produção nos setores automotivo e alimentício.',
+        'en-US': 'Development of IoT integration solutions with web systems for real-time monitoring of production lines in the automotive and food sectors.'
+      }
+    }
+  ];
+}
 
   getSkills(): Skill[] {
     return [
