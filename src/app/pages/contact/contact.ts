@@ -76,12 +76,16 @@ export class ContactComponent implements OnInit {
     try {
       // Preparar os parâmetros do template
       const templateParams = {
-        from_name: this.formData.name,
-        from_email: this.formData.email,
-        subject: this.formData.subject,
-        message: this.formData.message,
-        reply_to: this.formData.email
+        name: this.formData.name,
+        email: this.formData.email,
+        title: this.formData.subject,
+        message: this.formData.message
       };
+
+      console.log('Enviando email com EmailJS...');
+      console.log('Service ID:', environment.emailjs.serviceId);
+      console.log('Template ID:', environment.emailjs.templateId);
+      console.log('Parâmetros:', templateParams);
 
       // Enviar email via EmailJS
       const response = await emailjs.send(
@@ -105,13 +109,29 @@ export class ContactComponent implements OnInit {
         this.successMessage = '';
       }, 5000);
 
-    } catch (error) {
-      console.error('Erro ao enviar email:', error);
-      this.errorMessage = this.translate('contact.form.error');
+    } catch (error: any) {
+      console.error('Erro detalhado ao enviar email:', error);
+      console.error('Status:', error?.status);
+      console.error('Text:', error?.text);
+      
+      // Mensagem de erro mais específica
+      let errorMsg = this.translate('contact.form.error');
+      
+      if (error?.status === 400) {
+        errorMsg = 'Erro 400: Verifique as configurações do EmailJS no painel.';
+      } else if (error?.status === 401) {
+        errorMsg = 'Erro 401: Chave pública inválida ou expirada.';
+      } else if (error?.status === 403) {
+        errorMsg = 'Erro 403: Domínio não autorizado. Configure o domínio no EmailJS.';
+      } else if (error?.status === 404) {
+        errorMsg = 'Erro 404: Service ID ou Template ID não encontrado.';
+      }
+      
+      this.errorMessage = errorMsg;
       
       setTimeout(() => {
         this.errorMessage = '';
-      }, 5000);
+      }, 8000);
     } finally {
       this.isSubmitting = false;
     }
