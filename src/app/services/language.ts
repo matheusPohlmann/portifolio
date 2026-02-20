@@ -73,6 +73,7 @@ export class LanguageService {
     'contact.form.subjectMinLength': { 'pt-BR': 'Assunto deve ter pelo menos 5 caracteres', 'en-US': 'Subject must be at least 5 characters' },
     'contact.form.messageMinLength': { 'pt-BR': 'Mensagem deve ter pelo menos 10 caracteres', 'en-US': 'Message must be at least 10 characters' },
     'contact.form.success': { 'pt-BR': 'Abrindo seu cliente de email...', 'en-US': 'Opening your email client...' },
+    'contact.downloadResume': { 'pt-BR': 'Baixar Currículo', 'en-US': 'Download Resume' },
 
     // Footer
     'footer.rights': { 'pt-BR': 'Todos os direitos reservados', 'en-US': 'All rights reserved' }

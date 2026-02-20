@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../../services/data';
 import { LanguageService } from '../../services/language';
+import { ResumeService } from '../../services/resume';
 import { environment } from '../../../environments/environment';
 import emailjs from '@emailjs/browser';
 
@@ -16,6 +17,7 @@ import emailjs from '@emailjs/browser';
 export class ContactComponent implements OnInit {
   private dataService = inject(DataService);
   private languageService = inject(LanguageService);
+  private resumeService = inject(ResumeService);
   
   personalInfo: any;
   successMessage = '';
@@ -49,6 +51,10 @@ export class ContactComponent implements OnInit {
 
   translate(key: string): string {
     return this.languageService.translate(key);
+  }
+
+  downloadResume() {
+    this.resumeService.generatePDF();
   }
 
   async onSubmit() {
