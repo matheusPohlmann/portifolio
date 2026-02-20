@@ -18,7 +18,7 @@ export class ResumeService {
     let yPosition = 20;
 
     // Configurações de cores
-    const primaryColor: [number, number, number] = [138, 0, 196]; // #8A00C4
+    const primaryColor: [number, number, number] = [0, 0, 0]; // Preto para títulos
     const textColor: [number, number, number] = [51, 51, 51];
     const secondaryTextColor: [number, number, number] = [102, 102, 102];
 

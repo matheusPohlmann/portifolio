@@ -23,6 +23,7 @@ export class ContactComponent implements OnInit {
   successMessage = '';
   errorMessage = '';
   isSubmitting = false;
+  isGeneratingPDF = false;
   
   formData = {
     name: '',
@@ -54,7 +55,15 @@ export class ContactComponent implements OnInit {
   }
 
   downloadResume() {
-    this.resumeService.generatePDF();
+    this.isGeneratingPDF = true;
+    // Usar setTimeout para permitir que a UI atualize antes de gerar o PDF
+    setTimeout(() => {
+      try {
+        this.resumeService.generatePDF();
+      } finally {
+        this.isGeneratingPDF = false;
+      }
+    }, 100);
   }
 
   async onSubmit() {
