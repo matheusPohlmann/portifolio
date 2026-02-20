@@ -16,10 +16,55 @@ Portfólio profissional desenvolvido com Angular 20, Bootstrap 5 e TypeScript.
 - ✅ Página inicial com apresentação
 - ✅ Página sobre com experiências, habilidades e formação
 - ✅ Página de projetos com links para GitHub
-- ✅ Página de contato com formulário
+- ✅ Página de contato com formulário funcional (EmailJS)
+- ✅ Download de currículo em PDF
+- ✅ Suporte a múltiplos idiomas (PT-BR/EN-US)
+- ✅ Tema claro/escuro
 - ✅ Dados mockados (sem banco de dados)
 - ✅ Design responsivo
 - ✅ Animações suaves
+
+## 🔄 Fluxo de Trabalho (Git Flow)
+
+Este projeto utiliza duas branches principais:
+
+### `main` - Produção
+- Branch de produção
+- Deploy automático no GitHub Pages
+- Apenas código testado e aprovado
+
+### `develop` - Desenvolvimento
+- Branch de desenvolvimento
+- Todas as novas features são desenvolvidas aqui
+- Commits diários e experimentações
+
+### Workflow Recomendado
+
+1. **Desenvolver nova feature:**
+   ```bash
+   git checkout develop
+   git pull origin develop
+   # Faça suas alterações
+   git add .
+   git commit -m "Descrição da alteração"
+   git push origin develop
+   ```
+
+2. **Criar Pull Request para produção:**
+   - Acesse: https://github.com/matheusPohlmann/portifolio/pulls
+   - Clique em "New Pull Request"
+   - Base: `main` ← Compare: `develop`
+   - Revise as alterações
+   - Adicione descrição e clique em "Create Pull Request"
+   - Após revisão, clique em "Merge Pull Request"
+
+3. **Sincronizar após merge:**
+   ```bash
+   git checkout main
+   git pull origin main
+   git checkout develop
+   git merge main
+   ```
 
 ## 🛠️ Como Executar Localmente
 
